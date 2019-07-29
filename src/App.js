@@ -3,6 +3,7 @@ import uuid from "uuid";
 import "bootstrap/dist/css/bootstrap.min.css";
 import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
+// Vscode Config
 
 class App extends Component {
   render() {
@@ -10,8 +11,8 @@ class App extends Component {
       <div>
         <div className="container">
           <div className="row">
-            <TodoInput/>
-            <TodoList/>
+            <TodoInput />
+            <TodoList />
           </div>
         </div>
       </div>
