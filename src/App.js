@@ -4,28 +4,45 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
 // Vscode Config
-state = {
-  items: [{ id: 1, title: "A" }, { id: 2, title: "B" }, { id: 3, title: "C" }],
-  id: uuid(),
-  item: "",
-  editItem: false
-};
-handleChange = e => {
-  console.log();
-};
-handleSubmit = e => {
-  console.log();
-};
-clearList = () => {
-  console.log();
-};
-handleEdit = id => {
-  console.log();
-};
-handleDelete = id => {
-  console.log();
-};
+
 class App extends Component {
+  state = {
+    items: [],
+    id: uuid(),
+    item: "",
+    editItem: false
+  };
+  handleChange = e => {
+    this.setState({
+      item: e.target.value
+    });
+  };
+  handleSubmit = e => {
+    e.preventDefault();
+    const newItem = {
+      id: this.state.id,
+      title: this.state.item
+    };
+    const updatedItems = [...this.state.items, newItem];
+    this.setState(
+      {
+        items: updatedItems,
+        item: "",
+        id: uuid(),
+        editItem: false
+      },
+      console.log(this.state)
+    );
+  };
+  clearList = () => {
+    console.log("");
+  };
+  handleEdit = id => {
+    console.log("");
+  };
+  handleDelete = id => {
+    console.log("");
+  };
   render() {
     return (
       <div className="container">
