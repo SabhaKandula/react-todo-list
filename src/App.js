@@ -4,7 +4,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
 // Vscode Config
-
 class App extends Component {
   state = {
     items: [],
@@ -35,13 +34,18 @@ class App extends Component {
     );
   };
   clearList = () => {
-    console.log("");
+    this.setState({
+      items: []
+    });
   };
   handleEdit = id => {
-    console.log("");
+    console.log(`Handle edit ${id}`);
   };
   handleDelete = id => {
-    console.log("");
+    const filteredItems = this.state.items.filter(item => item.id !== id);
+    this.setState({
+      items: filteredItems
+    });
   };
   render() {
     return (
@@ -58,7 +62,7 @@ class App extends Component {
             <TodoList
               items={this.state.items}
               clearList={this.clearList}
-              handleDelete={this.handleChange}
+              handleDelete={this.handleDelete}
               handleEdit={this.handleEdit}
             />
           </div>
